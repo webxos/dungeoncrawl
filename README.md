@@ -1,10 +1,10 @@
 # DungeonCrawl
-
+```
 ▄                      ▜ 
 ▌▌▌▌▛▌▛▌█▌▛▌▛▌▛▘▛▘▀▌▌▌▌▐
 ▙▘▙▌▌▌▙▌▙▖▙▌▌▌▙▖▌ █▌▚▚▘▐▖
       ▄▌
-
+```
 
 **A rich, infinite text-based RPG dungeon crawler with crafting, classes, quests, and optional AI narration.**
 
