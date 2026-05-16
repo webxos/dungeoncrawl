@@ -1,0 +1,135 @@
+{
+  "weapons": {
+    "Leather Dagger": { "materials": { "Leather Scrap": 2 }, "gold_cost": 5, "result": { "name": "Leather Dagger", "type": "weapon", "bonus": 1, "value": 10, "consumable": false } },
+    "Leather Sling": { "materials": { "Leather Scrap": 3 }, "gold_cost": 8, "result": { "name": "Leather Sling", "type": "weapon", "bonus": 1, "value": 12, "consumable": false } },
+    "Wooden Club": { "materials": { "Leather Scrap": 1, "Wood Scrap": 2 }, "gold_cost": 5, "result": { "name": "Wooden Club", "type": "weapon", "bonus": 1, "value": 8, "consumable": false } },
+    "Wooden Spear": { "materials": { "Leather Scrap": 1, "Wood Scrap": 3 }, "gold_cost": 8, "result": { "name": "Wooden Spear", "type": "weapon", "bonus": 2, "value": 15, "consumable": false } },
+    "Iron Sword": { "materials": { "Iron Ingot": 3, "Leather Scrap": 1 }, "gold_cost": 15, "result": { "name": "Iron Sword", "type": "weapon", "bonus": 2, "value": 25, "consumable": false } },
+    "Iron Axe": { "materials": { "Iron Ingot": 4, "Leather Scrap": 1 }, "gold_cost": 20, "result": { "name": "Iron Axe", "type": "weapon", "bonus": 3, "value": 35, "consumable": false } },
+    "Iron Mace": { "materials": { "Iron Ingot": 4, "Leather Scrap": 2 }, "gold_cost": 22, "result": { "name": "Iron Mace", "type": "weapon", "bonus": 3, "value": 38, "consumable": false } },
+    "Iron Spear": { "materials": { "Iron Ingot": 5, "Leather Scrap": 1 }, "gold_cost": 25, "result": { "name": "Iron Spear", "type": "weapon", "bonus": 4, "value": 45, "consumable": false } },
+    "Iron Longsword": { "materials": { "Iron Ingot": 6, "Leather Scrap": 2 }, "gold_cost": 30, "result": { "name": "Iron Longsword", "type": "weapon", "bonus": 5, "value": 55, "consumable": false } },
+    "Titanium Dagger": { "materials": { "Titanium Ingot": 2, "Enchanted Dust": 1 }, "gold_cost": 40, "result": { "name": "Titanium Dagger", "type": "weapon", "bonus": 4, "value": 50, "consumable": false } },
+    "Titanium Sword": { "materials": { "Titanium Ingot": 4, "Enchanted Dust": 1 }, "gold_cost": 70, "result": { "name": "Titanium Sword", "type": "weapon", "bonus": 6, "value": 90, "consumable": false } },
+    "Titanium Axe": { "materials": { "Titanium Ingot": 5, "Enchanted Dust": 2 }, "gold_cost": 90, "result": { "name": "Titanium Axe", "type": "weapon", "bonus": 7, "value": 120, "consumable": false } },
+    "Titanium Spear": { "materials": { "Titanium Ingot": 6, "Enchanted Dust": 2 }, "gold_cost": 110, "result": { "name": "Titanium Spear", "type": "weapon", "bonus": 8, "value": 140, "consumable": false } },
+    "Titanium Greatsword": { "materials": { "Titanium Ingot": 8, "Enchanted Dust": 3, "Gem Shard": 1 }, "gold_cost": 150, "result": { "name": "Titanium Greatsword", "type": "weapon", "bonus": 9, "value": 180, "consumable": false } },
+    "Void Edge": {
+      "materials": { "Void Essence": 3, "Null Core": 1, "Titanium Ingot": 6, "Enchanted Dust": 4 },
+      "gold_cost": 600,
+      "result": { "name": "Void Edge", "type": "weapon", "bonus": 12, "value": 800, "consumable": false, "unique": true }
+    }
+  },
+  "armor": {
+    "Leather Vest": { "materials": { "Leather Scrap": 3 }, "gold_cost": 8, "result": { "name": "Leather Vest", "type": "armor", "bonus": 1, "value": 12, "consumable": false } },
+    "Leather Gloves": { "materials": { "Leather Scrap": 2 }, "gold_cost": 5, "result": { "name": "Leather Gloves", "type": "gloves", "bonus": 1, "value": 8, "consumable": false } },
+    "Leather Boots": { "materials": { "Leather Scrap": 2 }, "gold_cost": 6, "result": { "name": "Leather Boots", "type": "boots", "bonus": 1, "value": 10, "consumable": false } },
+    "Leather Helm": { "materials": { "Leather Scrap": 2, "Iron Ore": 1 }, "gold_cost": 10, "result": { "name": "Leather Helm", "type": "armor", "bonus": 1, "value": 15, "consumable": false } },
+    "Iron Chainmail": { "materials": { "Iron Ingot": 4, "Leather Scrap": 2 }, "gold_cost": 30, "result": { "name": "Iron Chainmail", "type": "armor", "bonus": 2, "value": 40, "consumable": false } },
+    "Iron Plate": { "materials": { "Iron Ingot": 6, "Leather Scrap": 2 }, "gold_cost": 50, "result": { "name": "Iron Plate", "type": "armor", "bonus": 3, "value": 70, "consumable": false } },
+    "Iron Boots": { "materials": { "Iron Ingot": 3 }, "gold_cost": 20, "result": { "name": "Iron Boots", "type": "boots", "bonus": 2, "value": 25, "consumable": false } },
+    "Iron Gauntlets": { "materials": { "Iron Ingot": 2, "Leather Scrap": 1 }, "gold_cost": 15, "result": { "name": "Iron Gauntlets", "type": "gloves", "bonus": 2, "value": 20, "consumable": false } },
+    "Iron Helm": { "materials": { "Iron Ingot": 3, "Leather Scrap": 1 }, "gold_cost": 25, "result": { "name": "Iron Helm", "type": "armor", "bonus": 2, "value": 35, "consumable": false } },
+    "Titanium Plate": { "materials": { "Titanium Ingot": 6, "Enchanted Dust": 2 }, "gold_cost": 120, "result": { "name": "Titanium Plate", "type": "armor", "bonus": 5, "value": 160, "consumable": false } },
+    "Titanium Boots": { "materials": { "Titanium Ingot": 4, "Enchanted Dust": 1 }, "gold_cost": 60, "result": { "name": "Titanium Boots", "type": "boots", "bonus": 4, "value": 80, "consumable": false } },
+    "Titanium Gauntlets": { "materials": { "Titanium Ingot": 3, "Enchanted Dust": 1 }, "gold_cost": 50, "result": { "name": "Titanium Gauntlets", "type": "gloves", "bonus": 4, "value": 70, "consumable": false } },
+    "Titanium Helm": { "materials": { "Titanium Ingot": 5, "Enchanted Dust": 2 }, "gold_cost": 80, "result": { "name": "Titanium Helm", "type": "armor", "bonus": 5, "value": 100, "consumable": false } },
+    "Titanium Full Plate": { "materials": { "Titanium Ingot": 10, "Enchanted Dust": 4, "Gem Shard": 1 }, "gold_cost": 200, "result": { "name": "Titanium Full Plate", "type": "armor", "bonus": 7, "value": 250, "consumable": false } },
+    "Dragon Scale Mail": {
+      "materials": { "Dragon Scale": 4, "Titanium Ingot": 2, "Enchanted Dust": 2 },
+      "gold_cost": 250,
+      "result": { "name": "Dragon Scale Mail", "type": "armor", "bonus": 8, "value": 300, "consumable": false }
+    },
+    "Phoenix Feather Amulet": {
+      "materials": { "Phoenix Feather": 2, "Gold Ingot": 5, "Essence": 8 },
+      "gold_cost": 400,
+      "result": { "name": "Amulet of Rebirth", "type": "amulet", "bonus": 5, "effect": "revive_once", "value": 500, "consumable": false }
+    }
+  },
+  "potions": {
+    "Lesser Health Potion": { "materials": { "Herb Bundle": 2, "Essence": 1 }, "gold_cost": 5, "result": { "name": "Lesser Health Potion", "type": "consumable", "effect": "heal", "value": 10, "tier": "lesser", "consumable": true } },
+    "Normal Health Potion": { "materials": { "Herb Bundle": 4, "Essence": 2 }, "gold_cost": 15, "result": { "name": "Normal Health Potion", "type": "consumable", "effect": "heal", "value": 25, "tier": "normal", "consumable": true } },
+    "Greater Health Potion": { "materials": { "Herb Bundle": 6, "Essence": 3, "Gem Shard": 1 }, "gold_cost": 35, "result": { "name": "Greater Health Potion", "type": "consumable", "effect": "heal", "value": 50, "tier": "greater", "consumable": true } },
+    "Superior Health Potion": { "materials": { "Herb Bundle": 9, "Essence": 5, "Gem Shard": 2 }, "gold_cost": 80, "result": { "name": "Superior Health Potion", "type": "consumable", "effect": "heal", "value": 80, "tier": "superior", "consumable": true } },
+    "Supreme Health Potion": { "materials": { "Herb Bundle": 12, "Essence": 8, "Gem Shard": 3, "Enchanted Dust": 1 }, "gold_cost": 150, "result": { "name": "Supreme Health Potion", "type": "consumable", "effect": "heal", "value": 150, "tier": "supreme", "consumable": true } },
+    "Potion of Invisibility": { "materials": { "Essence": 3, "Gem Shard": 2, "Enchanted Dust": 1 }, "gold_cost": 60, "result": { "name": "Potion of Invisibility", "type": "consumable", "effect": "invisible", "value": 40, "consumable": true } },
+    "Potion of Giant Strength": { "materials": { "Essence": 4, "Titanium Ingot": 1, "Herb Bundle": 3 }, "gold_cost": 75, "result": { "name": "Potion of Giant Strength", "type": "consumable", "effect": "giant_strength", "value": 5, "consumable": true } },
+    "Potion of Haste": { "materials": { "Essence": 2, "Gem Shard": 1, "Herb Bundle": 2 }, "gold_cost": 40, "result": { "name": "Potion of Haste", "type": "consumable", "effect": "haste", "value": 1, "consumable": true } },
+    "Potion of Fire Breath": { "materials": { "Essence": 3, "Enchanted Dust": 1, "Dragon Scale": 1 }, "gold_cost": 90, "result": { "name": "Potion of Fire Breath", "type": "consumable", "effect": "fire_breath", "value": 20, "consumable": true } },
+    "Potion of Frost Armor": { "materials": { "Essence": 3, "Titanium Ingot": 1, "Gem Shard": 1 }, "gold_cost": 70, "result": { "name": "Potion of Frost Armor", "type": "consumable", "effect": "frost_armor", "value": 10, "consumable": true } },
+    "Potion of Regeneration": { "materials": { "Essence": 4, "Herb Bundle": 5, "Gem Shard": 2 }, "gold_cost": 100, "result": { "name": "Potion of Regeneration", "type": "consumable", "effect": "regeneration", "value": 5, "consumable": true } },
+    "Elixir of the Phoenix": { "materials": { "Essence": 8, "Enchanted Dust": 3, "Gem Shard": 3, "Dragon Scale": 2 }, "gold_cost": 250, "result": { "name": "Elixir of the Phoenix", "type": "consumable", "effect": "revive", "value": 1, "consumable": true } },
+    "Potion of Heroism": { "materials": { "Essence": 5, "Herb Bundle": 4, "Gem Shard": 2, "Titanium Ingot": 1 }, "gold_cost": 120, "result": { "name": "Potion of Heroism", "type": "consumable", "effect": "heroism", "value": 3, "consumable": true } },
+    "Potion of Lightning Resistance": { "materials": { "Essence": 2, "Herb Bundle": 3 }, "gold_cost": 25, "result": { "name": "Potion of Lightning Resistance", "type": "consumable", "effect": "resist_lightning", "value": 10, "consumable": true } },
+    "Potion of Poison Immunity": { "materials": { "Essence": 2, "Herb Bundle": 3, "Gem Shard": 1 }, "gold_cost": 35, "result": { "name": "Potion of Poison Immunity", "type": "consumable", "effect": "resist_poison", "value": 10, "consumable": true } },
+    "Potion of Stone Skin": { "materials": { "Essence": 3, "Iron Ingot": 2, "Herb Bundle": 2 }, "gold_cost": 55, "result": { "name": "Potion of Stone Skin", "type": "consumable", "effect": "stoneskin", "value": 5, "consumable": true } },
+    "Elixir of Mana": { "materials": { "Essence": 3, "Herb Bundle": 3, "Enchanted Dust": 1 }, "gold_cost": 45, "result": { "name": "Elixir of Mana", "type": "consumable", "effect": "mana_restore", "value": 20, "consumable": true } },
+    "Potion of True Sight": { "materials": { "Essence": 4, "Gem Shard": 2, "Enchanted Dust": 1 }, "gold_cost": 80, "result": { "name": "Potion of True Sight", "type": "consumable", "effect": "true_sight", "value": 5, "consumable": true } },
+    "Potion of Dragon's Breath": {
+      "materials": { "Dragon Scale": 1, "Essence": 2, "Herb Bundle": 3 },
+      "gold_cost": 100,
+      "result": { "name": "Potion of Dragon's Breath", "type": "consumable", "effect": "fire_breath", "value": 30, "consumable": true }
+    },
+    "Elixir of Void Walking": {
+      "materials": { "Void Essence": 2, "Null Core": 1, "Enchanted Dust": 2 },
+      "gold_cost": 250,
+      "result": { "name": "Elixir of Void Walking", "type": "consumable", "effect": "teleport", "value": 1, "consumable": true }
+    }
+  },
+  "buff_potions": {
+    "Strength Potion": { "materials": { "Essence": 2, "Herb Bundle": 2 }, "gold_cost": 20, "result": { "name": "Strength Potion", "type": "consumable", "effect": "buff", "value": 2, "consumable": true } },
+    "Defense Potion": { "materials": { "Essence": 2, "Leather Scrap": 2 }, "gold_cost": 20, "result": { "name": "Defense Potion", "type": "consumable", "effect": "defense", "value": 2, "consumable": true } },
+    "Speed Potion": { "materials": { "Essence": 2, "Herb Bundle": 1, "Gem Shard": 1 }, "gold_cost": 30, "result": { "name": "Speed Potion", "type": "consumable", "effect": "haste", "value": 1, "consumable": true } },
+    "Critical Potion": { "materials": { "Essence": 3, "Gem Shard": 2, "Enchanted Dust": 1 }, "gold_cost": 50, "result": { "name": "Critical Potion", "type": "consumable", "effect": "crit", "value": 10, "consumable": true } }
+  },
+  "permanent_potions": {
+    "Potion of Vitality": { "materials": { "Dragon Scale": 2, "Essence": 5, "Gem Shard": 2, "Titanium Ingot": 2 }, "gold_cost": 400, "result": { "effect": "permanent_hp_boost", "value": 15 }, "max_consumed": 1 },
+    "Elixir of Might": { "materials": { "Titanium Ingot": 3, "Essence": 5, "Gem Shard": 2, "Enchanted Dust": 1 }, "gold_cost": 350, "result": { "effect": "permanent_attack_boost", "value": 2 }, "max_consumed": 1 },
+    "Potion of Resilience": { "materials": { "Troll Hide": 2, "Essence": 5, "Gem Shard": 2, "Enchanted Dust": 1 }, "gold_cost": 350, "result": { "effect": "permanent_defense_boost", "value": 2 }, "max_consumed": 1 },
+    "Elixir of the Ancients": { "materials": { "Phoenix Feather": 1, "Essence": 8, "Enchanted Dust": 3, "Gem Shard": 3 }, "gold_cost": 600, "result": { "effect": "permanent_hp_boost", "value": 25 }, "max_consumed": 1 },
+    "Draught of Unyielding": { "materials": { "Dragon Scale": 3, "Titanium Ingot": 5, "Enchanted Dust": 5, "Gem Shard": 4 }, "gold_cost": 800, "result": { "effect": "permanent_attack_boost", "value": 4 }, "max_consumed": 1 }
+  },
+  "runes": {
+    "Rune of Fire": { "materials": { "Enchanted Dust": 2, "Essence": 1 }, "gold_cost": 20, "slot": "weapon", "result": { "name": "Rune of Fire", "type": "rune", "effect": "fire_damage", "value": 25, "consumable": true } },
+    "Rune of Frost": { "materials": { "Enchanted Dust": 2, "Essence": 1 }, "gold_cost": 20, "slot": "weapon", "result": { "name": "Rune of Frost", "type": "rune", "effect": "frost_damage", "value": 25, "consumable": true } },
+    "Rune of Lightning": { "materials": { "Enchanted Dust": 2, "Essence": 2 }, "gold_cost": 30, "slot": "weapon", "result": { "name": "Rune of Lightning", "type": "rune", "effect": "lightning_damage", "value": 30, "consumable": true } },
+    "Rune of Healing": { "materials": { "Enchanted Dust": 3, "Essence": 2, "Herb Bundle": 2 }, "gold_cost": 40, "slot": "armor", "result": { "name": "Rune of Healing", "type": "rune", "effect": "heal_on_hit", "value": 40, "consumable": true } },
+    "Rune of Might": { "materials": { "Enchanted Dust": 2, "Iron Ingot": 2 }, "gold_cost": 35, "slot": "weapon", "result": { "name": "Rune of Might", "type": "rune", "effect": "strength", "value": 35, "consumable": true } },
+    "Rune of Protection": { "materials": { "Enchanted Dust": 2, "Iron Ingot": 2, "Leather Scrap": 1 }, "gold_cost": 35, "slot": "armor", "result": { "name": "Rune of Protection", "type": "rune", "effect": "defense", "value": 35, "consumable": true } },
+    "Rune of Speed": { "materials": { "Enchanted Dust": 2, "Essence": 1, "Gem Shard": 1 }, "gold_cost": 30, "slot": "armor", "result": { "name": "Rune of Speed", "type": "rune", "effect": "haste", "value": 30, "consumable": true } },
+    "Rune of the Void": { "materials": { "Enchanted Dust": 5, "Gem Shard": 3, "Titanium Ingot": 1 }, "gold_cost": 100, "slot": "weapon", "result": { "name": "Rune of the Void", "type": "rune", "effect": "teleport", "value": 50, "consumable": true } },
+    "Rune of the Eagle": { "materials": { "Enchanted Dust": 2, "Essence": 2, "Leather Scrap": 2 }, "gold_cost": 25, "slot": "armor", "result": { "name": "Rune of the Eagle", "type": "rune", "effect": "critical", "value": 5, "consumable": true } },
+    "Rune of the Wolf": { "materials": { "Enchanted Dust": 2, "Essence": 2, "Iron Ingot": 1 }, "gold_cost": 25, "slot": "armor", "result": { "name": "Rune of the Wolf", "type": "rune", "effect": "movement_speed", "value": 10, "consumable": true } },
+    "Rune of Life": { "materials": { "Enchanted Dust": 4, "Essence": 3, "Herb Bundle": 4, "Gem Shard": 1 }, "gold_cost": 80, "slot": "armor", "result": { "name": "Rune of Life", "type": "rune", "effect": "max_hp", "value": 20, "consumable": true } },
+    "Rune of Storms": { "materials": { "Enchanted Dust": 4, "Essence": 3, "Gem Shard": 2, "Titanium Ingot": 1 }, "gold_cost": 90, "slot": "weapon", "result": { "name": "Rune of Storms", "type": "rune", "effect": "chain_lightning", "value": 50, "consumable": true } }
+  },
+  "set_items": {
+    "Void Walker Set": {
+      "pieces": {
+        "Void Walker's Helm": { "materials": { "Titanium Ingot": 3, "Enchanted Dust": 2, "Gem Shard": 1 }, "gold_cost": 120, "result": { "name": "Void Walker's Helm", "type": "armor", "bonus": 4, "value": 90, "set": "Void Walker", "consumable": false } },
+        "Void Walker's Chestplate": { "materials": { "Titanium Ingot": 5, "Enchanted Dust": 3, "Gem Shard": 2 }, "gold_cost": 180, "result": { "name": "Void Walker's Chestplate", "type": "armor", "bonus": 6, "value": 140, "set": "Void Walker", "consumable": false } },
+        "Void Walker's Boots": { "materials": { "Titanium Ingot": 2, "Enchanted Dust": 2, "Leather Scrap": 2 }, "gold_cost": 80, "result": { "name": "Void Walker's Boots", "type": "boots", "bonus": 3, "value": 60, "set": "Void Walker", "consumable": false } },
+        "Void Walker's Gauntlets": { "materials": { "Titanium Ingot": 2, "Enchanted Dust": 2, "Iron Ingot": 1 }, "gold_cost": 70, "result": { "name": "Void Walker's Gauntlets", "type": "gloves", "bonus": 3, "value": 55, "set": "Void Walker", "consumable": false } }
+      },
+      "set_bonus": { "name": "Void Walker's Embrace", "effect": "all_stats", "value": 5, "description": "All stats +5 when full set equipped." }
+    },
+    "Dragon Knight Set": {
+      "pieces": {
+        "Dragon Knight's Helm": { "materials": { "Titanium Ingot": 4, "Enchanted Dust": 3, "Dragon Scale": 1 }, "gold_cost": 150, "result": { "name": "Dragon Knight's Helm", "type": "armor", "bonus": 5, "value": 110, "set": "Dragon Knight", "consumable": false } },
+        "Dragon Knight's Plate": { "materials": { "Titanium Ingot": 7, "Enchanted Dust": 4, "Dragon Scale": 2 }, "gold_cost": 220, "result": { "name": "Dragon Knight's Plate", "type": "armor", "bonus": 7, "value": 170, "set": "Dragon Knight", "consumable": false } },
+        "Dragon Knight's Boots": { "materials": { "Titanium Ingot": 3, "Enchanted Dust": 2, "Dragon Scale": 1 }, "gold_cost": 100, "result": { "name": "Dragon Knight's Boots", "type": "boots", "bonus": 4, "value": 75, "set": "Dragon Knight", "consumable": false } },
+        "Dragon Knight's Gauntlets": { "materials": { "Titanium Ingot": 3, "Enchanted Dust": 2, "Dragon Scale": 1 }, "gold_cost": 90, "result": { "name": "Dragon Knight's Gauntlets", "type": "gloves", "bonus": 4, "value": 70, "set": "Dragon Knight", "consumable": false } }
+      },
+      "set_bonus": { "name": "Dragon's Fury", "effect": "fire_resistance_damage", "value": 10, "description": "+10 fire resistance and +10% damage when full set equipped." }
+    },
+    "Shadow Walker Set": {
+      "pieces": {
+        "Shadow Walker's Hood": { "materials": { "Leather Scrap": 5, "Enchanted Dust": 2, "Essence": 2 }, "gold_cost": 60, "result": { "name": "Shadow Walker's Hood", "type": "armor", "bonus": 2, "value": 40, "set": "Shadow Walker", "consumable": false } },
+        "Shadow Walker's Tunic": { "materials": { "Leather Scrap": 8, "Enchanted Dust": 3, "Essence": 3 }, "gold_cost": 90, "result": { "name": "Shadow Walker's Tunic", "type": "armor", "bonus": 3, "value": 65, "set": "Shadow Walker", "consumable": false } },
+        "Shadow Walker's Boots": { "materials": { "Leather Scrap": 4, "Enchanted Dust": 1, "Essence": 1 }, "gold_cost": 40, "result": { "name": "Shadow Walker's Boots", "type": "boots", "bonus": 2, "value": 30, "set": "Shadow Walker", "consumable": false } },
+        "Shadow Walker's Gloves": { "materials": { "Leather Scrap": 4, "Enchanted Dust": 1, "Essence": 1 }, "gold_cost": 35, "result": { "name": "Shadow Walker's Gloves", "type": "gloves", "bonus": 2, "value": 28, "set": "Shadow Walker", "consumable": false } }
+      },
+      "set_bonus": { "name": "Shadow's Embrace", "effect": "stealth_crit", "value": 15, "description": "+15% critical chance and stealth movement when full set equipped." }
+    }
+  }
+}

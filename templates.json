@@ -1,0 +1,334 @@
+#!/usr/bin/env python3
+"""
+generate_full_templates.py – Creates a fully expanded templates.json
+Run: python generate_full_templates.py
+"""
+
+import json
+import random
+import copy
+
+# ------------------------------------------------------------
+# 1. BASE DATA (same as story_gen.py's BASE, but we include only essential keys)
+#    The expansion functions will generate thousands of variants.
+# ------------------------------------------------------------
+BASE = {
+    "room_descriptions": [
+        "You enter a dusty chamber lit by flickering torches. Room {room_id} smells of old stone.",
+        "This circular room has a high ceiling. Water drips somewhere in the darkness.",
+        "A collapsed corridor leads into Room {room_id}. Cobwebs cling to the walls.",
+        "Torchlight reveals ancient runes on the walls of Room {room_id}.",
+        "You stand in a small stone cell. Chains hang from the ceiling.",
+        "The floor of Room {room_id} is covered in shattered tiles that once formed a map.",
+        "You step into a lush underground garden, glowing mushrooms lighting the way.",
+        "The walls of Room {room_id} are lined with ancient bookshelves, dust thick on tomes.",
+        "A massive chasm splits Room {room_id}, a single rope bridge crossing it.",
+        "You hear the distant roar of a waterfall as you enter Room {room_id}.",
+    ],
+    "ambient": [
+        "You hear distant footsteps.",
+        "A rat scurries across the floor.",
+        "The torchlight flickers in a sudden draft.",
+        "Something scrapes behind the wall.",
+        "A low growl echoes from deeper in the dungeon.",
+        "Whispers of lost souls fill the air.",
+        "A ghostly moan drifts through the room.",
+        "You hear the sound of chains rattling.",
+        "A cold wind blows through the room, extinguishing your torch for a moment.",
+        "You hear the sound of breaking glass somewhere nearby.",
+    ],
+    "action_responses": [
+        "You {action}. Nothing happens.",
+        "As you {action}, you notice a faint glow in the corner.",
+        "Your attempt to {action} fails, but you feel you're on the right track.",
+        "You {action}. Rolled 1d20: 15. A lever clicks! The path north glows faintly.",
+    ],
+    "monster_encounters": [
+        "A bloodthirsty Orc Berserker charges at you in Room {room_id}!",
+        "A ghostly Specter materializes, draining the life from the air around you.",
+        "A massive Minotaur snorts and lowers its horns in Room {room_id}.",
+        "A pack of glowing Shadow Wolves circles you silently.",
+    ],
+    "loot_descriptions": [
+        "You discover a gleaming Elven Longsword enchanted with +2 to attack rolls in Room {room_id}.",
+        "A pouch of 100 ancient gold pieces stamped with lost empire seals.",
+        "A shimmering Potion of Healing that glows with inner light.",
+        "A Ring of Invisibility carved with dwarven runes.",
+    ],
+    "combat_responses": [
+        "You {action} the {monster}. Rolled 1d20: {roll}. It hits hard, the {monster} reels in pain!",
+        "Your {action} connects with a thunderous crack against the {monster}!",
+        "You {action} the {monster}. Rolled 1d20: {roll}. Critical hit! Blood sprays dramatically.",
+        "The {monster} dodges your {action} but you graze its flank.",
+    ],
+    "trap_responses": [
+        "You {action} and trigger an arrow trap! Rolled 1d20: {roll}. You dodge most but take 5 damage.",
+        "A pit opens beneath you after your {action}! Rolled 1d20: {roll}. You barely hang on.",
+        "Poison gas hisses from the walls after you {action}. Rolled 1d20: {roll}.",
+        "A swinging blade trap activates from your {action}! Rolled 1d20: {roll}.",
+    ],
+    "npc_dialogues": [
+        "The {npc_type} whispers: 'The dragon sleeps... but not for long.'",
+        "The {npc_type} says: 'Take the left path, hero. The right leads to certain doom.'",
+        "The {npc_type} offers: 'For a single gold coin I will tell you the secret password.'",
+        "The {npc_type} chants: 'Beware the one who wears the crown of bones.'",
+    ],
+    "riddles": [
+        "What has keys but can't open locks? (A piano)",
+        "I speak without a mouth and hear without ears. I have no eyes, yet I can see the future. What am I? (An echo)",
+        "The more you take, the more you leave behind. What am I? (Footsteps)",
+        "What can travel around the world while staying in a corner? (A stamp)",
+    ],
+    "prophecies": [
+        "The stars foretell: a hero shall rise where the dragon falls.",
+        "In the deepest dark, light shall be born from courage alone.",
+        "The crown of bones will shatter on the day of the true king.",
+        "When the last phoenix sings, the dungeon shall open its heart.",
+    ],
+    "magical_events": [
+        "Arcane energies surge through Room {room_id} and heal all wounds!",
+        "A portal of pure starlight opens, offering a shortcut to safety.",
+        "The walls bloom with glowing flowers that grant temporary invisibility.",
+        "Time freezes for a moment, letting you act twice.",
+    ],
+    "nli_fallback_messages": {
+        "move": ["Your boots echo on ancient stone as you head {direction}.", "You press onward {direction}, deeper into the dark."],
+        "look": ["Your eyes adjust to the gloom...", "You scan the chamber carefully."],
+        "attack": ["Steel rings as you charge!", "You launch yourself at the creature!"],
+        "search": ["You run your hands along the walls...", "Your eyes search every shadow."],
+        "rest": ["You find a sheltered corner and close your eyes.", "The dungeon quiets as you rest."],
+        "use": ["You employ the item carefully.", "The object hums with use."],
+        "talk": ["You address the figure cautiously.", "Words form between you and the presence."],
+    },
+    "model_unavailable": [
+        "The oracle is silent... but your instincts guide you.",
+        "The stars give no answer tonight. You act on gut.",
+        "The mystic mists part enough to show you the way.",
+        "The dungeon holds its breath — you must decide alone.",
+    ],
+    "compact_room_summary": "{type} room {room_id}. {monster_tag}{loot_tag}Exits: {exits}. HP {hp}/{maxHp}.",
+    "monster_tag": "Monster: {monster}. ",
+    "loot_tag": "Loot: {loot}. ",
+    "monsters": [
+        {"name": "Goblin", "zone": "entrance", "base_hp": 8, "base_attack": 2, "base_defense": 1, "damage_range": [2,5], "xp": 20, "gold_range": [5,10], "loot_table": []},
+        {"name": "Kobold", "zone": "entrance", "base_hp": 6, "base_attack": 3, "base_defense": 0, "damage_range": [2,4], "xp": 15, "gold_range": [3,7], "loot_table": []},
+        {"name": "Orc", "zone": "mid", "base_hp": 18, "base_attack": 5, "base_defense": 3, "damage_range": [4,9], "xp": 45, "gold_range": [10,20], "loot_table": []},
+        {"name": "Troll", "zone": "deep", "base_hp": 40, "base_attack": 8, "base_defense": 5, "damage_range": [6,12], "xp": 100, "gold_range": [30,60], "loot_table": []},
+    ],
+    "items": [
+        {"name": "Leather Scrap", "type": "misc", "value": 1, "consumable": False},
+        {"name": "Iron Ore", "type": "misc", "value": 2, "consumable": False},
+        {"name": "Iron Ingot", "type": "misc", "value": 4, "consumable": False},
+        {"name": "Lesser Health Potion", "type": "consumable", "effect": "heal", "value": 10, "tier": "lesser", "consumable": True},
+        {"name": "Iron Sword", "type": "weapon", "bonus": 2, "value": 20, "consumable": False},
+        {"name": "Chainmail", "type": "armor", "bonus": 2, "value": 30, "consumable": False},
+    ],
+    "ground_loot": {
+        "entrance": {
+            "items": [{"name": "Leather Scrap", "type": "misc", "value": 1}],
+            "chances": [1.0]
+        },
+        "mid": {
+            "items": [{"name": "Iron Ore", "type": "misc", "value": 2}],
+            "chances": [1.0]
+        },
+        "deep": {
+            "items": [{"name": "Iron Ingot", "type": "misc", "value": 4}],
+            "chances": [1.0]
+        },
+        "boss": {
+            "items": [{"name": "Titanium Ingot", "type": "misc", "value": 10}],
+            "chances": [1.0]
+        }
+    },
+    "traps": [
+        {"name": "Pit", "zone": "entrance", "effect": "damage", "save_dc": 10, "damage": 5},
+        {"name": "Spike Trap", "zone": "mid", "effect": "damage", "save_dc": 12, "damage": 8},
+        {"name": "Lightning Rune", "zone": "deep", "effect": "damage", "save_dc": 14, "damage": 12},
+    ],
+    "npcs": [
+        {"name": "Old Sage", "zone": "entrance", "dialogue": "The path ahead is dangerous. Seek better gear.", "quest_giver": True},
+        {"name": "Traveling Merchant", "zone": "entrance", "dialogue": "I buy and sell items!", "quest_giver": False, "vendor": True},
+        {"name": "Blacksmith Kael", "zone": "mid", "dialogue": "Bring me ores and I'll forge weapons.", "quest_giver": False, "vendor": True},
+    ],
+    "quest_hints": {
+        "entrance": ["You see a crude map marking the goblin camp.", "A dying adventurer whispers: 'Seek iron for the blacksmith.'"],
+        "mid": ["Scratches on the wall read: 'The forge needs titanium.'", "You find a journal: 'The alchemist in the deep brews potions of might.'"],
+        "deep": ["A glowing inscription: 'Three scales shall light the way to the Lich.'", "You discover notes: 'The Blood Grimoire holds the banishing rite.'"]
+    },
+    "quest_templates": [
+        {"id": "q_minion_hunter", "name": "Minion Hunter", "description": "Defeat any minion.", "objectives": [{"type": "kill", "target": "Minion", "current": 0, "required": 1}], "reward": {"gold": 100, "xp": 80}},
+        {"id": "q_collect_iron", "name": "Gather Iron", "description": "Collect 5 Iron Ore.", "objectives": [{"type": "collect", "target": "Iron Ore", "current": 0, "required": 5}], "reward": {"gold": 100, "xp": 80}},
+        {"id": "q_kill_goblins", "name": "Goblin Slayer", "description": "Defeat 10 Goblins.", "objectives": [{"type": "kill", "target": "Goblin", "current": 0, "required": 10}], "reward": {"gold": 150, "xp": 120}},
+    ],
+    "lore_fragments": [
+        "The dungeon's deepest veins contain Titanium, a metal stronger than steel.",
+        "Alchemists discovered that mixing Essence with Herb Bundles creates powerful healing potions.",
+        "The Lich was once a powerful wizard who sought immortality.",
+        "Seven seals bind an ancient evil beneath the deepest floor.",
+    ],
+    "global_events": [
+        {"name": "Wandering Merchant", "description": "A traveling merchant appears!", "effect": "merchant"},
+        {"name": "Blessing of the Ancients", "description": "You feel a divine blessing. +10% HP for this room.", "effect": "blessing"},
+        {"name": "Curse of the Void", "description": "Dark energy drains your life. Lose 10% HP.", "effect": "curse"},
+    ],
+    "story_arcs": [
+        {
+            "id": "arc_lich_war",
+            "name": "The Lich War",
+            "description": "The Ancient Lich seeks to extend his dark rule beyond the dungeon walls.",
+            "quest_chain": ["q_minion_hunter", "q_collect_iron", "q_kill_goblins"],
+            "final_reward": {"gold": 2000, "xp": 1500, "item": {"name": "Lich's Phylactery", "type": "quest", "value": 1000}},
+            "cutscene_text": "As the Lich crumbles to dust, the dungeon shudders."
+        }
+    ],
+    "mini_bosses": [
+        {"name": "Goblin Chieftain", "zone": "entrance", "hp": 40, "attack": 8, "defense": 5, "damage_range": [5,10], "xp": 100, "gold_range": [50,100]},
+    ],
+    "boss_intros": [
+        {"boss": "Ancient Lich", "intro": "The doors to the inner sanctum grind open. On a throne of skulls sits the Ancient Lich..."},
+    ],
+    "cinematic_events": [
+        {"trigger": "first_monster_kill", "text": "As the creature falls, something shifts in the dungeon. Torches flare."},
+    ],
+}
+
+# ------------------------------------------------------------
+# 2. EXPANSION FUNCTIONS
+# ------------------------------------------------------------
+def expand_list(base_list, target_min=2000):
+    """Expand a list of strings to at least target_min items."""
+    if len(base_list) >= target_min:
+        return base_list[:]
+    expanded = base_list[:]
+    suffixes = [" (echoing)", " (dusty)", " (ancient)", " (whispering)", " (shadowy)"]
+    while len(expanded) < target_min:
+        for s in base_list:
+            if len(expanded) >= target_min:
+                break
+            new_s = s + random.choice(suffixes)
+            if new_s not in expanded:
+                expanded.append(new_s)
+    return expanded[:target_min]
+
+def expand_monsters(base_list, target=500):
+    if len(base_list) >= target:
+        return base_list[:]
+    monsters = base_list[:]
+    prefixes = ["Shadow", "Fire", "Ice", "Venom", "Ancient", "Elder", "Cursed", "Raging", "Void"]
+    while len(monsters) < target:
+        base = random.choice(base_list)
+        new = copy.deepcopy(base)
+        new["name"] = random.choice(prefixes) + " " + base["name"]
+        new["base_hp"] = int(base["base_hp"] * random.uniform(0.8, 1.5))
+        new["base_attack"] = int(base["base_attack"] * random.uniform(0.8, 1.5))
+        new["base_defense"] = int(base["base_defense"] * random.uniform(0.8, 1.5))
+        new["xp"] = int(base["xp"] * random.uniform(0.8, 1.5))
+        monsters.append(new)
+    return monsters[:target]
+
+def expand_items(base_list, target=1000):
+    if len(base_list) >= target:
+        return base_list[:]
+    items = base_list[:]
+    prefixes = ["Iron", "Steel", "Bronze", "Silver", "Golden", "Crystal", "Obsidian", "Mithril"]
+    while len(items) < target:
+        base = random.choice(base_list)
+        new = copy.deepcopy(base)
+        new["name"] = random.choice(prefixes) + " " + base["name"]
+        new["value"] = int(base["value"] * random.uniform(0.8, 1.5))
+        if "bonus" in new:
+            new["bonus"] = int(base["bonus"] * random.uniform(0.8, 1.5))
+        items.append(new)
+    return items[:target]
+
+def expand_ground_loot(base_loot):
+    expanded = {}
+    for zone, data in base_loot.items():
+        items = data["items"]
+        chances = data["chances"]
+        new_items = items[:]
+        for _ in range(200):
+            base_item = random.choice(items)
+            new_item = copy.deepcopy(base_item)
+            new_item["name"] = random.choice(["Strange", "Glowing", "Faint", "Cracked"]) + " " + new_item["name"]
+            new_items.append(new_item)
+        new_chances = chances * (len(new_items) // len(chances) + 1)
+        new_chances = new_chances[:len(new_items)]
+        total = sum(new_chances)
+        new_chances = [c / total for c in new_chances]
+        expanded[zone] = {"items": new_items, "chances": new_chances}
+    return expanded
+
+def expand_quests(base_list, target=200):
+    if len(base_list) >= target:
+        return base_list[:]
+    quests = base_list[:]
+    targets = ["Goblin", "Skeleton", "Orc", "Dragon", "Lich", "Troll", "Spider"]
+    while len(quests) < target:
+        q = copy.deepcopy(random.choice(base_list))
+        q["id"] = f"q_{random.randint(1000,9999)}"
+        verb = random.choice(["Slay", "Collect", "Find", "Defeat"])
+        noun = random.choice(targets)
+        q["name"] = f"{verb} {noun}"
+        obj_type = random.choice(["kill", "collect", "explore"])
+        obj_target = random.choice(targets)
+        required = random.randint(1, 5)
+        q["objectives"] = [{"type": obj_type, "target": obj_target, "current": 0, "required": required}]
+        quests.append(q)
+    return quests[:target]
+
+def expand_lore(base_list, target=500):
+    if len(base_list) >= target:
+        return base_list[:]
+    lore = base_list[:]
+    topics = [
+        "The dungeon was built by the dwarves.", "A great battle was fought here centuries ago.",
+        "The Lich was once a righteous king.", "Three heroes sealed the evil long ago.",
+        "The dungeon shifts its layout every century.", "The Dungeon Heart beats once per hour."
+    ]
+    while len(lore) < target:
+        new_lore = random.choice(topics) + " " + random.choice(["Legends say...", "You recall...", "The walls whisper..."])
+        lore.append(new_lore)
+    return lore[:target]
+
+def build_mega_expanded():
+    templates = copy.deepcopy(BASE)
+    # Expand all list‑based keys
+    for key in ["room_descriptions", "ambient", "action_responses", "monster_encounters",
+                "loot_descriptions", "combat_responses", "trap_responses", "npc_dialogues",
+                "riddles", "prophecies", "magical_events", "model_unavailable"]:
+        if key in templates:
+            templates[key] = expand_list(templates[key], 2000)
+    # Expand monsters, items, ground loot, quests, lore
+    templates["monsters"] = expand_monsters(templates["monsters"], 500)
+    templates["items"] = expand_items(templates["items"], 1000)
+    templates["ground_loot"] = expand_ground_loot(templates["ground_loot"])
+    templates["quest_templates"] = expand_quests(templates["quest_templates"], 200)
+    templates["lore_fragments"] = expand_lore(templates["lore_fragments"], 500)
+    # Expand fallback messages
+    for tool, msgs in templates.get("nli_fallback_messages", {}).items():
+        if isinstance(msgs, list):
+            new_msgs = msgs[:]
+            for _ in range(100):
+                for m in msgs:
+                    new_m = m + " " + random.choice(["The dungeon hums.", "Shadows flicker.", "You feel a chill."])
+                    new_msgs.append(new_m)
+            templates["nli_fallback_messages"][tool] = new_msgs[:200]
+    return templates
+
+# ------------------------------------------------------------
+# 3. MAIN
+# ------------------------------------------------------------
+if __name__ == "__main__":
+    print("Generating full templates.json ...")
+    expanded = build_mega_expanded()
+    with open("templates.json", "w") as f:
+        json.dump(expanded, f, indent=2)
+    total_items = sum(
+        len(v) if isinstance(v, list) else
+        sum(len(sv) if isinstance(sv, list) else 1 for sv in v.values()) if isinstance(v, dict) else 1
+        for v in expanded.values()
+    )
+    print(json.dumps({"status": "ok", "items": total_items}))
+    print("templates.json created successfully.")

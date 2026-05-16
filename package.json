@@ -1,0 +1,19 @@
+{
+  "name": "dungeoncrawl",
+  "version": "7.2.0",
+  "description": "Epic Fantasy AI Dungeon Master – Full RPG with TUI, class system, crafting, and infinite dungeon",
+  "type": "module",
+  "main": "dungeoncrawl.js",
+  "scripts": {
+    "start": "node dungeoncrawl.js",
+    "postinstall": "echo 'Skipping template expansion (use python expand_templates.py manually if needed)'"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "python-shell": "5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
