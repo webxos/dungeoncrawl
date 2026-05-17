@@ -5,9 +5,9 @@
       ▄▌
 ```
 
-**A rich, infinite text-based RPG dungeon crawler with crafting, classes, quests, and optional AI narration.**
+**Infinite text-based RPG dungeon crawler with crafting, classes, quests, and optional AI narration.**
 
-Built for terminal warriors who want deep gameplay, smart natural language commands, and endless replayability.
+Built for terminal gameplay, smart natural language commands, and endless replayability.
 
 ![Terminal RPG](https://img.shields.io/badge/Terminal%20RPG-Epic%20Adventure-brightgreen)
 ![Version](https://img.shields.io/badge/version-7.2.0-blue)
