@@ -119,7 +119,11 @@ MIT License
 ## Screenshots
 
 
-![https://github.com/webxos/dungeoncrawl/blob/main/assets/screen1.png](https://github.com/webxos/lack/blob/main/assets/screen1.png)
+![https://github.com/webxos/dungeoncrawl/blob/main/assets/screen1.png]([https://github.com/webxos/dungeoncrawl/blob/main/assets/screen1.png)
+
+![https://github.com/webxos/dungeoncrawl/blob/main/assets/screen2.png]([https://github.com/webxos/dungeoncrawl/blob/main/assets/screen2.png)
+
+
 
 ![https://github.com/webxos/dungeoncrawl/blob/main/assets/screen2.png](https://github.com/webxos/lack/blob/main/assets/screen2.png)
 
