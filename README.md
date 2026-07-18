@@ -5,6 +5,8 @@
       ▄▌
 ```
 
+![https://github.com/webxos/dungeoncrawl/blob/main/assets/dungeoncrawl.png](https://github.com/webxos/dungeoncrawl/blob/main/assets/dungeoncrawl.png)
+
 **Infinite text-based RPG dungeon crawler with crafting, classes, quests, and optional AI narration.**
 
 Built for terminal gameplay, smart natural language commands, and endless replayability.
