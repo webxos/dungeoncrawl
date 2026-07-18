@@ -18,7 +18,7 @@ Built for terminal gameplay, smart natural language commands, and endless replay
 
 ---
 
-## ✨ Features
+## Features
 
 ### Core Gameplay
 - **Infinite Dungeon** – Procedurally generated rooms that go on forever (`go north` forever)
@@ -50,7 +50,7 @@ Built for terminal gameplay, smart natural language commands, and endless replay
 
 ---
 
-## 🎮 Quick Start
+## Quick Start
 
 ### Prerequisites
 - **Node.js** 18+
@@ -78,7 +78,7 @@ npm start
 
 ---
 
-## 🕹️ Basic Commands
+## Basic Commands
 
 | Action              | Example Commands                     |
 |---------------------|--------------------------------------|
@@ -95,7 +95,7 @@ npm start
 
 ---
 
-## 🎯 Gameplay Tips
+## Gameplay Tips
 
 - **Explore deeply** – Better loot and stronger monsters appear in deeper zones
 - **Craft early** – Iron gear makes a huge difference
@@ -105,7 +105,7 @@ npm start
 
 ---
 
-## 🔧 Tech Stack
+## Tech Stack
 
 - **Backend**: Python 3 (game engine, procedural generation)
 - **Frontend**: Node.js + rich TUI
@@ -114,7 +114,7 @@ npm start
 
 ---
 
-## 📜 License
+## License
 
 MIT License
 
